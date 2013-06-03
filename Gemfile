@@ -7,4 +7,5 @@ group :test do
   gem 'simplecov', :require => false
   gem 'rake'
   gem 'test-unit'
+  gem 'fakeweb'
 end
