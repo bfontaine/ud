@@ -1,21 +1,7 @@
 #! /usr/bin/env ruby
 # -*- coding: UTF-8 -*-
 
-require 'fakeweb'
-
-# No ids
-FakeWeb.register_uri(
-  :get,
-  'http://api.urbandictionary.com/v0/uncacheable?ids=',
-  :body => '{"thumbs":[]}'
-)
-
-# One id
-FakeWeb.register_uri(
-  :get,
-  'http://api.urbandictionary.com/v0/uncacheable?ids=42',
-  :body => '{"thumbs":[{"defid":42,"thumbs_up":2,"thumbs_down":1}]}'
-)
+require File.dirname(__FILE__) + '/fake_responses'
 
 class UD_Formatting_test < Test::Unit::TestCase
 
@@ -58,6 +44,37 @@ class UD_Formatting_test < Test::Unit::TestCase
 
   def test_thumbs_one_id
     assert_equal({42 =>{:up => 2, :down => 1}}, UD.thumbs([42]))
+  end
+
+  # == UD#query == #
+
+  def test_query_no_results
+    assert_equal([], UD.query('nothing'))
+  end
+
+  def test_query_two_results
+
+    expected = [
+      {
+        :id => '1',
+        :word => 'foo',
+        :definition => 'A',
+        :example => 'AA',
+        :upvotes => 1,
+        :downvotes => 1
+
+      },
+      {
+        :id => '2',
+        :word => 'bar',
+        :definition => 'B',
+        :example => 'BB',
+        :upvotes => 2,
+        :downvotes => 2
+      }
+    ]
+
+    assert_equal(expected, UD.query('two'))
   end
 
 end
