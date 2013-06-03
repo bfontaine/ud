@@ -50,6 +50,11 @@ module UD
   # This list may be empty if there's no results. It only scraps the first
   # page of results, since it's generally sufficient.
   def UD.query(term, *opts)
+
+    opts = opts[0] || { :count => 10, :ratio => 0.0 }
+
+    return [] if opts[:count] <= 0
+
     url = search_url(term)
     doc = Nokogiri::HTML(open(url))
 
@@ -60,7 +65,7 @@ module UD
 
     thumbs = thumbs(ids)
 
-    ids.map do |id|
+    ids.take(opts[:count]).map do |id|
 
       word = text doc.css(".word[data-defid=\"#{id}\"] > span").first
       body = doc.css("#entry_#{id}")
