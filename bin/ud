@@ -4,9 +4,9 @@
 require 'ud'
 
 if ARGV.size == 1
-    q = UD.query(ARGV[0])
-    UD.format_results(q)
+  q = UD.query(ARGV[0])
+  UD.format_results(q)
 else
-    puts "Usage:\n\tud <word>"
+  puts "Usage:\n\tud <word>"
 end
 
