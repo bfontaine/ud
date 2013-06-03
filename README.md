@@ -14,6 +14,9 @@ a word by scrapping its pages.
 gem install ud
 ```
 
+Windows users: You will need the Win32 Console ANSI gem for the colored output.
+Install it with `gem install win32console`.
+
 ## Usage
 
 From the command-line:
@@ -22,13 +25,13 @@ From the command-line:
 $ ud <word>
 ```
 
-It scrape only the first page of definitions. You can reduce the number of
-definitions with some options:
+It scrape only the first page of definitions. It support a few options:
 
 - `-n`, `--count`: maximum number of definitions (default: 10)
 - `-r`, `--ratio`: minimum upvotes/downvotes ratio (default: 0.0)
 - `-u`, `--up`: shortcut for `--ratio 1`. With this option, only the definitions
   which have more upvotes than downvotes are shown
+- `--no-color`: disable colored output.
 
 In a Ruby file:
 

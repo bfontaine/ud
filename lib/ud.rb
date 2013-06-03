@@ -106,13 +106,23 @@ module UD
   # Format results for output
   # [results] this must be an array of results, as returned by +UD.query+.
   def UD.format_results(results, color=true)
+    require 'colored' if color
 
     t = '   ' # 4-spaces tab
 
     results.map do |r|
 
       word  = r[:word]
-      votes = "#{r[:upvotes]}/#{r[:downvotes]}"
+      upvotes = r[:upvotes]
+      downvotes = r[:downvotes]
+
+      if (color)
+        word      = word.bold
+        upvotes   = upvotes.to_s.green
+        downvotes = downvotes.to_s.red
+      end
+
+      votes = "#{upvotes}/#{downvotes}"
       definition = UD::Formatting.fit(r[:definition], 75).map {|l| t+l}.join("\n")
       example = UD::Formatting.fit(r[:example], 75).map {|l| t+l}.join("\n")
 
