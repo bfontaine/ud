@@ -3,3 +3,4 @@
 .*.swo
 Gemfile.lock
 *.gem
+/coverage
