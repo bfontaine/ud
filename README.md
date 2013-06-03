@@ -25,7 +25,7 @@ From the command-line:
 $ ud <word>
 ```
 
-It scrape only the first page of definitions. It support a few options:
+It scrapes only the first page of definitions. It supports a few options:
 
 - `-n`, `--count`: maximum number of definitions (default: 10)
 - `-r`, `--ratio`: minimum upvotes/downvotes ratio (default: 0.0)
