@@ -17,7 +17,7 @@ gem install ud
 From the command-line:
 
 ```sh
-ud <word>
+$ ud <word>
 ```
 
 In a Ruby file:
@@ -37,6 +37,13 @@ $ bundle install
 $ rake test
 ```
 
-Set the `COVERAGE` environment variable to a truthy value to activate the code
-coverage report. It’ll generate a `coverage/index.html`, which you can open in a
+Set the `COVERAGE` environment variable to activate the code
+coverage report, e.g.:
+
+```
+$ export COVERAGE=1; rake test
+```
+
+
+It’ll generate a `coverage/index.html`, which you can open in a
 Web browser.
