@@ -79,16 +79,18 @@ module UD
   # Format results for output, and print them
   def UD.format_results(results)
 
-    results.each do |r|
+    results.map do |r|
 
-      puts "* #{r[:word]} (#{r[:upvotes]}/#{r[:downvotes]}):"
-      puts ''
-      puts " \t#{r[:definition].gsub(/\n/, "\n\t")}\n"
-      puts ' Example:'
-      puts " \t#{r[:example].gsub(/\n/, "\n\t")}"
-      puts "\n\n"
+      s = ''
 
-    end
+      s << "* #{r[:word]} (#{r[:upvotes]}/#{r[:downvotes]}):\n"
+      s << "\n"
+      s << " \t#{r[:definition].gsub(/\n/, "\n\t")}\n\n"
+      s << " Example:\n"
+      s << " \t#{r[:example].gsub(/\n/, "\n\t")}\n"
+      s << "\n\n"
+
+    end.join("\n")
 
   end
 
