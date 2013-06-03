@@ -20,7 +20,7 @@ From the command-line:
 $ ud <word>
 ```
 
-It scrape only the first pages of definitions. You can reduce the number of
+It scrape only the first page of definitions. You can reduce the number of
 definitions with some options:
 
 - `-n`, `--count`: maximum number of definitions (default: 10)
