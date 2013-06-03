@@ -20,13 +20,23 @@ FakeWeb.register_uri(
   "#{thumbs_url}?ids=42",
   :body => '{"thumbs":[{"defid":42,"thumbs_up":2,"thumbs_down":1}]}'
 )
+FakeWeb.register_uri(
+  :get,
+  "#{thumbs_url}?ids=1",
+  :body => '{"thumbs":[{"defid":1,"thumbs_up":1,"thumbs_down":1}]}'
+)
+FakeWeb.register_uri(
+  :get,
+  "#{thumbs_url}?ids=2",
+  :body => '{"thumbs":[{"defid":2,"thumbs_up":2,"thumbs_down":1}]}'
+)
 
 # Multiple ids
 FakeWeb.register_uri(
   :get,
   "#{thumbs_url}?ids=1%2C2",
   :body => '{"thumbs":[{"defid":1,"thumbs_up":1,"thumbs_down":1},' +
-           '{"defid":2,"thumbs_up":2,"thumbs_down":2}]}'
+           '{"defid":2,"thumbs_up":2,"thumbs_down":1}]}'
 )
 
 # == Definitions queries == #

@@ -70,11 +70,41 @@ class UD_Formatting_test < Test::Unit::TestCase
         :definition => 'B',
         :example => 'BB',
         :upvotes => 2,
-        :downvotes => 2
+        :downvotes => 1
       }
     ]
 
     assert_equal(expected, UD.query('two'))
+  end
+
+  def test_query_count
+    expected = [
+      {
+        :id => '1',
+        :word => 'foo',
+        :definition => 'A',
+        :example => 'AA',
+        :upvotes => 1,
+        :downvotes => 1
+      }
+    ]
+
+    assert_equal(expected, UD.query('two', :count => 1))
+  end
+
+  def test_query_ratio
+    expected = [
+      {
+        :id => '2',
+        :word => 'bar',
+        :definition => 'B',
+        :example => 'BB',
+        :upvotes => 2,
+        :downvotes => 1
+      }
+    ]
+
+    assert_equal(expected, UD.query('two', :ratio => 1.5))
   end
 
 end
