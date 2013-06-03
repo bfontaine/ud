@@ -41,6 +41,19 @@ require 'ud'
 defs = UD.query('wtf')
 ```
 
+## Example
+
+```
+$ ud -n 1 dafuq
+* dafuq (9427/4425):
+
+   what the fuck , but in a more confused manner
+
+ Example:
+   Hagrid: You're a wizard Harry
+   Harry: Dafuq?
+```
+
 ## Tests
 
 ```
