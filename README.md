@@ -27,3 +27,16 @@ require 'ud'
 
 defs = UD.query('wtf')
 ```
+
+## Tests
+
+```
+$ git clone https://github.com/bfontaine/ud.git
+$ cd ud
+$ bundle install
+$ rake test
+```
+
+Set the `COVERAGE` environment variable to a truthy value to activate the code
+coverage report. It’ll generate a `coverage/index.html`, which you can open in a
+Web browser.
