@@ -17,14 +17,14 @@ EOS
   opt :ratio, 'Filter by upvotes/downvotes ratio', :type => :float, :default => 0.0
   opt :count, 'Limit the number of definitions', :type => :int, :default => 10, :short => '-n'
   opt :color, 'Use colorized output', :default => true
-  opt :up, 'Shortcut for \'-r 1\''
+  opt :up, 'Shortcut for \'-r 2\''
 
 end
 
 Trollop.die :ratio, 'must be non-negative' if opts[:ratio] < 0
 Trollop.die :count, 'must be non-negative' if opts[:count] < 0
 
-opts[:ratio] = 1 if opts[:up]
+opts[:ratio] = 2 if opts[:up]
 
 if ARGV.empty?
   puts 'Error: No word provided. Use -h or --help to see the help.'
