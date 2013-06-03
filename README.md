@@ -4,7 +4,7 @@
 doesn’t have a public API, so this little tool allows you to find the definition(s) of
 a word by scrapping its pages.
 
-[urban-dic]: http://www.urbandictionary.com/define.php?term=totolala
+[urban-dic]: http://www.urbandictionary.com
 
 ## Install
 
@@ -16,7 +16,7 @@ gem install ud
 
 From the command-line:
 
-```sh
+```
 $ ud <word>
 ```
 
