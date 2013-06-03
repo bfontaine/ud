@@ -6,6 +6,8 @@ require 'json'
 require 'open-uri'
 require 'nokogiri'
 
+require File.dirname(__FILE__) + '/ud/formatting'
+
 # This module provide some methods to scrape definitions from the Urban
 # Dictionary website.
 module UD
@@ -105,15 +107,22 @@ module UD
   # [results] this must be an array of results, as returned by +UD.query+.
   def UD.format_results(results, color=true)
 
+    t = '   ' # 4-spaces tab
+
     results.map do |r|
+
+      word  = r[:word]
+      votes = "#{r[:upvotes]}/#{r[:downvotes]}"
+      definition = UD::Formatting.fit(r[:definition], 75).map {|l| t+l}.join("\n")
+      example = UD::Formatting.fit(r[:example], 75).map {|l| t+l}.join("\n")
 
       s = ''
 
-      s << "* #{r[:word]} (#{r[:upvotes]}/#{r[:downvotes]}):\n"
+      s << "* #{word} (#{votes}):\n"
       s << "\n"
-      s << " \t#{r[:definition].gsub(/\n/, "\n\t")}\n\n"
-      s << " Example:\n"
-      s << " \t#{r[:example].gsub(/\n/, "\n\t")}\n"
+      s << definition
+      s << "\n\n Example:\n"
+      s << example
       s << "\n\n"
 
     end.join("\n")
