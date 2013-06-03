@@ -56,7 +56,7 @@ class UD_Formatting_test < Test::Unit::TestCase
       :example => 'zyx'
     }
 
-    output = UD.format_results([res]).strip
+    output = UD.format_results([res], false).strip
     expected = <<EOS
 * XYZ (42/78):
 
