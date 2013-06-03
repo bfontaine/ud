@@ -61,11 +61,18 @@ module UD
     return [] unless doc.css('#not_defined_yet').empty?
 
     words = doc.css('.word[data-defid]')
-    ids   = words.map { |w| w.attr('data-defid') }
+    ids   = words.map { |w| w.attr('data-defid') }.take opts[:count]
 
     thumbs = thumbs(ids)
 
-    ids.take(opts[:count]).map do |id|
+    if opts[:ratio] > 0
+      ids.delete_if do |id|
+        t = thumbs[id.to_i] || {:up => 1, :down => 1}
+        (t[:up] / t[:down].to_f) < opts[:ratio]
+      end
+    end
+
+    ids.map do |id|
 
       word = text doc.css(".word[data-defid=\"#{id}\"] > span").first
       body = doc.css("#entry_#{id}")
