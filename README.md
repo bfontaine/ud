@@ -20,6 +20,14 @@ From the command-line:
 $ ud <word>
 ```
 
+It scrape only the first pages of definitions. You can reduce the number of
+definitions with some options:
+
+- `-n`, `--count`: maximum number of definitions (default: 10)
+- `-r`, `--ratio`: minimum upvotes/downvotes ratio (default: 0.0)
+- `-u`, `--up`: shortcut for `--ratio 1`. With this option, only the definitions
+  which have more upvotes than downvotes are shown
+
 In a Ruby file:
 
 ```ruby
