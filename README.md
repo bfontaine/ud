@@ -1,5 +1,7 @@
 # ud
 
+[![Build Status](https://travis-ci.org/bfontaine/ud.png?branch=master)](https://travis-ci.org/bfontaine/ud)
+
 **ud** is a web scrapping tool for [Urban Dictionnary][urban-dic]. The website
 doesn’t have a public API, so this little tool allows you to find the definition(s) of
 a word by scrapping its pages.
