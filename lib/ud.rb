@@ -60,7 +60,7 @@ module UD
   # upvotes/downvotes ratio. Other options may be added in the future.
   def UD.query(term, *opts)
 
-    opts = opts[0] || { :count => 10, :ratio => 0.0 }
+    opts = {:count => 10, :ratio => 0.0}.merge(opts[0] || {})
 
     return [] if opts[:count] <= 0
 
@@ -70,7 +70,7 @@ module UD
     return [] unless doc.css('#not_defined_yet').empty?
 
     words = doc.css('.word[data-defid]')
-    ids   = words.map { |w| w.attr('data-defid') }.take opts[:count]
+    ids   = words.take(opts[:count]).map { |w| w.attr('data-defid') }
 
     thumbs = thumbs(ids)
 
