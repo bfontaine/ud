@@ -14,4 +14,15 @@ for t in Dir.glob( File.join( test_dir,  '*_tests.rb' ) )
   require t
 end
 
+class UDTests < Test::Unit::TestCase
+
+  # == UD#version == #
+
+  def test_ud_version
+    assert(UD.version =~ /^\d+\.\d+\.\d+/)
+  end
+
+end
+
+
 exit Test::Unit::AutoRunner.run
