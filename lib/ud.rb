@@ -6,19 +6,24 @@ require 'json'
 require 'open-uri'
 require 'nokogiri'
 
+# This module provide some methods to scrape definitions from the Urban
+# Dictionary website.
 module UD
 
+  # The current version of the module
   def UD.version
     '0.1.1'
   end
 
-  # Get the search URL to query for a given term
+  # Get the search URL to query for a given term.
+  # [term] the term to search for. It must be a string, spaces are allowed
   def UD.search_url(term='')
     param = URI.encode_www_form('term' => term)
     "http://www.urbandictionary.com/define.php?#{param}"
   end
 
-  # Get the thumbs (up/down) for a list of definitions (ids)
+  # Get the thumbs (up/down) for a list of definitions' ids.
+  # This is an helper for internal usage.
   def UD.thumbs(ids)
 
     param = URI.encode_www_form('ids' => ids.join(','))
@@ -39,7 +44,7 @@ module UD
     thumbs
   end
 
-  # Get the text of an element
+  # Get the text of an element. This is an helper for internal usage.
   def UD.text(el)
     el.text.strip.gsub(/\r/, "\n")
   rescue
@@ -47,8 +52,12 @@ module UD
   end
 
   # Query the website and return a list of definitions for the provided term.
-  # This list may be empty if there's no results. It only scraps the first
-  # page of results, since it's generally sufficient.
+  # This list may be empty if there's no result. It only scraps the first
+  # page of results.
+  # [term] the term to search for
+  # [opts] options. This is used by the command-line tool. +:count+ is the
+  # maximum number of results to return, +:ratio+ is the minimum
+  # upvotes/downvotes ratio. Other options may be added in the future.
   def UD.query(term, *opts)
 
     opts = opts[0] || { :count => 10, :ratio => 0.0 }
@@ -92,7 +101,8 @@ module UD
 
   end
 
-  # Format results for output, and print them
+  # Format results for output
+  # [results] this must be an array of results, as returned by +UD.query+.
   def UD.format_results(results, color=true)
 
     results.map do |r|
