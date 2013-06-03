@@ -1,6 +1,8 @@
+require 'ud'
+
 Gem::Specification.new do |s|
     s.name          = 'ud'
-    s.version       = '0.1.0'
+    s.version       = UD.version
     s.date          = Time.now
 
     s.summary       = 'Urban Dictionary unofficial scrapper'

@@ -8,6 +8,10 @@ require 'nokogiri'
 
 module UD
 
+  def UD.version
+    '0.1.1'
+  end
+
   # Get the search URL to query for a given term
   def UD.search_url(term='')
     param = URI.encode_www_form('term' => term)
@@ -45,7 +49,7 @@ module UD
   # Query the website and return a list of definitions for the provided term.
   # This list may be empty if there's no results. It only scraps the first
   # page of results, since it's generally sufficient.
-  def UD.query(term)
+  def UD.query(term, *opts)
     url = search_url(term)
     doc = Nokogiri::HTML(open(url))
 
@@ -77,7 +81,7 @@ module UD
   end
 
   # Format results for output, and print them
-  def UD.format_results(results)
+  def UD.format_results(results, color=true)
 
     results.map do |r|
 
