@@ -3,10 +3,10 @@
 
 require 'ud'
 
-if ARGV.size == 1
-  q = UD.query(ARGV[0])
-  puts UD.format_results(q)
-else
+if ARGV.size == 0
   puts "Usage:\n\tud <word>"
+else
+  q = UD.query(ARGV.join(' '))
+  puts UD.format_results(q)
 end
 
