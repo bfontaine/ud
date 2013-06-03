@@ -2,6 +2,7 @@
 # -*- coding: UTF-8 -*-
 
 require 'uri'
+require 'json'
 require 'open-uri'
 require 'nokogiri'
 
@@ -70,6 +71,22 @@ module UD
                 :downvotes => t[:down]
 
             }
+
+        end
+
+    end
+
+    # Format results for output, and print them
+    def UD.format_results(results)
+
+        results.each do |r|
+
+            puts "* #{r[:word]} (#{r[:upvotes]}/#{r[:downvotes]}):"
+            puts ''
+            puts " \t#{r[:definition].gsub(/\n/, "\n\t")}\n"
+            puts ' Example:'
+            puts " \t#{r[:example].gsub(/\n/, "\n\t")}"
+            puts "\n\n"
 
         end
 
