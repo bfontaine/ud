@@ -70,4 +70,44 @@ EOS
 
   end
 
+  # == UD::Formatting#fit == #
+
+  def test_fit_0_width
+    assert_equal([], UD::Formatting.fit('foo', 0))
+  end
+
+  def test_fit_negative_width
+    assert_equal([], UD::Formatting.fit('foo', -1))
+  end
+
+  def test_fit_right_width
+    assert_equal(['foo'], UD::Formatting.fit('foo', 3))
+  end
+
+  def test_fit_larger_width
+    assert_equal(['foo'], UD::Formatting.fit('foo', 4))
+  end
+
+  def test_fit_smaller_width
+    assert_equal(['a', 'b'], UD::Formatting.fit('a b', 2))
+  end
+
+  # == UD::Formatting#tab == #
+
+  def test_tab_0_width
+    assert_equal('foo', UD::Formatting.tab('foo', 0))
+  end
+
+  def test_tab_negative_width
+    assert_equal('foo', UD::Formatting.tab('foo', -1))
+  end
+
+  def test_tab_2_width
+    assert_equal('  foo', UD::Formatting.tab('foo', 2))
+  end
+
+  def test_tab_array
+    assert_equal([' a', ' b'], UD::Formatting.tab(['a', 'b'], 1))
+  end
+
 end
