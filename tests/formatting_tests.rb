@@ -60,10 +60,10 @@ class UD_Formatting_test < Test::Unit::TestCase
     expected = <<EOS
 * XYZ (42/78):
 
-   xyz
+    xyz
 
  Example:
-   zyx
+    zyx
 EOS
 
     assert_equal(expected.strip, output)
