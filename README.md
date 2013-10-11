@@ -27,7 +27,7 @@ $ ud <word>
 
 It scrapes only the first page of definitions. It supports a few options:
 
-- `-n`, `--count`: maximum number of definitions (default: 10)
+- `-n`, `--count`: maximum number of definitions (default: 1)
 - `-r`, `--ratio`: minimum upvotes/downvotes ratio (default: 0.0)
 - `-u`, `--up`: shortcut for `--ratio 1`. With this option, only the definitions
   which have more upvotes than downvotes are shown
@@ -44,7 +44,7 @@ defs = UD.query('wtf')
 ## Example
 
 ```
-$ ud -n 1 dafuq
+$ ud dafuq
 * dafuq (9427/4425):
 
    what the fuck , but in a more confused manner

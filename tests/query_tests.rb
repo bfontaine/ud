@@ -74,7 +74,7 @@ class UD_Formatting_test < Test::Unit::TestCase
       }
     ]
 
-    assert_equal(expected, UD.query('two'))
+    assert_equal(expected, UD.query('two', :count => 2))
   end
 
   def test_query_count
@@ -104,7 +104,7 @@ class UD_Formatting_test < Test::Unit::TestCase
       }
     ]
 
-    assert_equal(expected, UD.query('two', :ratio => 1.5))
+    assert_equal(expected, UD.query('two', :count => 10, :ratio => 1.5))
   end
 
 end

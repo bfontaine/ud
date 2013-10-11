@@ -14,7 +14,7 @@ module UD
 
   # The current version of the module
   def UD.version
-    '0.1.1'
+    '0.1.2'
   end
 
   # Get the search URL to query for a given term.
@@ -62,7 +62,7 @@ module UD
   # upvotes/downvotes ratio. Other options may be added in the future.
   def UD.query(term, *opts)
 
-    opts = {:count => 10, :ratio => 0.0}.merge(opts[0] || {})
+    opts = {:count => 1, :ratio => 0.0}.merge(opts[0] || {})
 
     return [] if opts[:count] <= 0
 
