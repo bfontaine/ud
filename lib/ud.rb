@@ -14,7 +14,7 @@ module UD
 
   # The current version of the module
   def UD.version
-    '0.1.2'
+    '0.1.3'
   end
 
   # Get the search URL to query for a given term.
