@@ -71,8 +71,10 @@ module UD
 
     return [] unless doc.css('#not_defined_yet').empty?
 
-    words = doc.css('.word[data-defid]')
-    ids   = words.take(opts[:count]).map { |w| w.attr('data-defid') }
+    words = doc.css('#entries .box')
+    ids   = words.take(opts[:count]).map do |w|
+      w.css('.thumb.up').first.attr('data-defid')
+    end
 
     thumbs = thumbs(ids)
 
@@ -85,15 +87,16 @@ module UD
 
     ids.map do |id|
 
-      word = text doc.css(".word[data-defid=\"#{id}\"] > span").first
-      body = doc.css("#entry_#{id}")
+      box = doc.css(".add_to_list[data-defid=\"#{id}\"]").first.parent
+
+      word = text box.css(".word > a").first
       t    = thumbs[id.to_i] || {}
 
       {
         :id => id,
         :word => word,
-        :definition => text(body.css('.definition')),
-        :example => text(body.css('.example')),
+        :definition => text(box.css('.definition')),
+        :example => text(box.css('.example')),
         :upvotes => t[:up],
         :downvotes => t[:down]
 

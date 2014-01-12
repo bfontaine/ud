@@ -55,20 +55,51 @@ FakeWeb.register_uri(
   "#{def_url}?term=two",
   :body => <<EOS
 <body>
-  <div class="word" data-defid="1">
-    <span>foo</span>
-  </div>
-  <div id="entry_1">
-    <span class="definition">A</span>
-    <span class="example">AA</span>
-  </div>
-  <div class="word" data-defid="2">
-    <span>bar</span>
-  </div>
-  <div id="entry_2">
-    <span class="definition">B</span>
-    <span class="example">BB</span>
-  </div>
+<div id="entries">
+<div class="box">
+<div class="ribbon"></div>
+<a class="add_to_list" data-defid="1" href="#">
+<i class="icon-star-empty"></i></a>
+<div class="inner">
+<div class="word">
+<a href="/define.php?term=cenosillicaphobia&amp;defid=1">foo</a>
+</div>
+<div class="definition">A</div>
+<div class="example"> AA</div>
+<div class="contributor"> </div>
+<div class="share"> </div>
+</div>
+<div class="footer">
+<a class="thumb up" data-defid="1" data-direction="up" href="#">
+<i class="icon-thumbs-up"></i>
+</a>
+<a class="thumb down" data-defid="1" data-direction="down" href="#">
+<i class="icon-thumbs-down"></i>
+</a>
+</div>
+</div>
+<div class="box">
+<div class="ribbon"></div>
+<a class="add_to_list" data-defid="2" href="#">
+<i class="icon-star-empty"></i></a>
+<div class="inner">
+<div class="word">
+<a href="/define.php?term=cenosillicaphobia&amp;defid=2">bar</a>
+</div>
+<div class="definition">B</div>
+<div class="example"> BB</div>
+<div class="contributor"> </div>
+<div class="share"> </div>
+</div>
+<div class="footer">
+<a class="thumb up" data-defid="2" data-direction="up" href="#">
+<i class="icon-thumbs-up"></i>
+</a>
+<a class="thumb down" data-defid="2" data-direction="down" href="#">
+<i class="icon-thumbs-down"></i>
+</a>
+</div>
+</div>
 </body>
 EOS
 )
