@@ -14,7 +14,7 @@ Usage:
 where [options] are:
 EOS
 
-  opt :ratio, 'Filter by upvotes/downvotes ratio', :type => :float, :default => 0.0
+  opt :ratio, 'Filter by upvotes/downvotes ratio', :type => :float, :default => 0.0, :short => '-r'
   opt :count, 'Limit the number of definitions', :type => :int, :default => 1, :short => '-n'
   opt :color, 'Use colorized output', :default => true
   opt :up, 'Shortcut for \'-r 2\''
