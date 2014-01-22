@@ -65,7 +65,7 @@ Set the `COVERAGE` environment variable to activate the code
 coverage report, e.g.:
 
 ```
-$ export COVERAGE=1; rake test
+$ COVERAGE=1 rake test
 ```
 
 
