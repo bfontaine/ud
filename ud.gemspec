@@ -18,7 +18,6 @@ Gem::Specification.new do |s|
     s.require_path  = 'lib'
     s.executables  << 'ud'
 
-    s.add_runtime_dependency 'nokogiri', '~>1.5.9'
     s.add_runtime_dependency 'json',     '>=1.8.0'
     s.add_runtime_dependency 'trollop',  '~>2.0'
     s.add_runtime_dependency 'colored',  '~>1.2'

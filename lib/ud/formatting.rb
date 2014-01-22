@@ -3,10 +3,11 @@
 
 module UD
   module Formatting
+    class << self
 
     # Fit a text in a given width (number of chars). It returns
     # a list of lines of text.
-    def self.fit(txt, width=79)
+    def fit(txt, width=79)
       return [] if width < 1
 
       # from http://stackoverflow.com/a/7567210/735926
@@ -18,7 +19,7 @@ module UD
     # the beginning of each element.
     # [txt] The text to tab, may be a string or a list of strings
     # [width] The width (number of spaces) of a tab
-    def self.tab(txt, width=4)
+    def tab(txt, width=4)
       width = 0 if width < 0
 
       tab = ' ' * width
@@ -30,7 +31,7 @@ module UD
 
     # Format results for text output (e.g. in the terminal)
     # [results] this must be an array of results, as returned by +UD.query+.
-    def self.text(results, color=true)
+    def text(results, color=true)
       require 'colored' if color
 
       results.map do |r|
@@ -61,5 +62,6 @@ module UD
       end.join("\n")
     end
 
+    end
   end
 end

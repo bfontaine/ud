@@ -2,9 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bfontaine/ud.png?branch=master)](https://travis-ci.org/bfontaine/ud)
 
-**ud** is a web scrapping tool for [Urban Dictionnary][urban-dic]. The website
-doesn’t have a public API, so this little tool allows you to find the definition(s) of
-a word by scrapping its pages.
+**ud** is a command-line tool for [Urban Dictionnary][urban-dic].
 
 [urban-dic]: http://www.urbandictionary.com
 
@@ -25,7 +23,7 @@ From the command-line:
 $ ud <word>
 ```
 
-It scrapes only the first page of definitions. It supports a few options:
+It supports a few options:
 
 - `-n`, `--count`: maximum number of definitions (default: 1)
 - `-r`, `--ratio`: minimum upvotes/downvotes ratio (default: 0.0)
