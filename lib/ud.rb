@@ -13,7 +13,7 @@ module UD
   class << self
 
     def version
-      '0.1.3'
+      '0.2.0'
     end
 
     # Get the search URL to query for a given term.
