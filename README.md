@@ -2,6 +2,7 @@
 
 [![Build Status](https://travis-ci.org/bfontaine/ud.png?branch=master)](https://travis-ci.org/bfontaine/ud)
 [![Gem Version](https://badge.fury.io/rb/ud.png)](http://badge.fury.io/rb/ud)
+[![Coverage Status](https://coveralls.io/repos/bfontaine/ud/badge.png)](https://coveralls.io/r/bfontaine/ud)
 
 **ud** is a command-line tool for [Urban Dictionnary][urban-dic].
 
