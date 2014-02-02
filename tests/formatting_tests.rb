@@ -47,7 +47,7 @@ class UD_Formatting_test < Test::Unit::TestCase
     assert_equal('', UD.format_results([]))
   end
 
-  def test_format_results_one_element
+  def test_format_results_one_element_no_color
     res = {
       :word => 'XYZ',
       :upvotes => 42,
@@ -67,7 +67,32 @@ class UD_Formatting_test < Test::Unit::TestCase
 EOS
 
     assert_equal(expected.strip, output)
+  end
 
+  def test_format_results_one_element_color
+    green = "\e[32m"
+    bold  = "\e[1m"
+    red   = "\e[31m"
+    reset = "\e[0m"
+    res = {
+      :word => 'XYZ',
+      :upvotes => 42,
+      :downvotes => 78,
+      :definition => 'xyz',
+      :example => 'zyx'
+    }
+
+    output = UD.format_results([res], true).strip
+    expected = <<EOS
+* #{bold}XYZ#{reset} (#{green}42#{reset}/#{red}78#{reset}):
+
+    xyz
+
+ Example:
+    zyx
+EOS
+
+    assert_equal(expected.strip, output)
   end
 
   # == UD::Formatting#fit == #
