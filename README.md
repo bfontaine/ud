@@ -62,13 +62,4 @@ $ bundle install
 $ rake test
 ```
 
-Set the `COVERAGE` environment variable to activate the code
-coverage report, e.g.:
-
-```
-$ COVERAGE=1 rake test
-```
-
-
-It’ll generate a `coverage/index.html`, which you can open in a
-Web browser.
+It’ll generate a `coverage/index.html`, which you can open in a Web browser.
