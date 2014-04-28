@@ -3,7 +3,7 @@
 
 require File.dirname(__FILE__) + '/fake_responses'
 
-class UD_Formatting_test < Test::Unit::TestCase
+class UD_Query_test < Test::Unit::TestCase
 
   ROOT_URL = 'http://api.urbandictionary.com/v0/define'
 
