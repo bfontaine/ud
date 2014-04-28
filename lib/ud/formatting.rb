@@ -1,12 +1,15 @@
-#! /usr/bin/env ruby
 # -*- coding: UTF-8 -*-
 
 module UD
+
+  # Formatting tools for {UD.query}'s output
   module Formatting
     class << self
 
-    # Fit a text in a given width (number of chars). It returns
-    # a list of lines of text.
+    # Fit a text in a given width (number of chars).
+    # @param txt [String]
+    # @param width [Integer] maximum width
+    # @return [Array] list of lines of text
     def fit(txt, width=79)
       return [] if width < 1
 
@@ -17,8 +20,9 @@ module UD
 
     # Add a tab at the beginning of a text. If it's a list, add a tab at
     # the beginning of each element.
-    # [txt] The text to tab, may be a string or a list of strings
-    # [width] The width (number of spaces) of a tab
+    # @param txt [String] The text to tab, may be a string or a list of strings
+    # @param width [Integer] tab width
+    # @return [String]
     def tab(txt, width=4)
       width = 0 if width < 0
 
@@ -30,7 +34,10 @@ module UD
     end
 
     # Format results for text output (e.g. in the terminal)
-    # [results] this must be an array of results, as returned by +UD.query+.
+    # @param results [Array<Hash>] this must be an array of results, as
+    #                              returned by {UD.query}.
+    # @param color [Boolean] colored output
+    # @return [String]
     def text(results, color=true)
       require 'colored' if color
 
@@ -50,14 +57,16 @@ module UD
         definition = tab(fit(r[:definition], 75)).join("\n")
         example    = tab(fit(r[:example], 75)).join("\n")
 
-        s = ''
+        <<-EOD
+* #{word} (#{votes}):
 
-        s << "* #{word} (#{votes}):\n"
-        s << "\n"
-        s << definition
-        s << "\n\n Example:\n"
-        s << example
-        s << "\n\n"
+#{definition}
+
+ Example:
+#{example}
+
+
+        EOD
 
       end.join("\n")
     end

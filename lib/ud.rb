@@ -1,4 +1,3 @@
-#! /usr/bin/env ruby
 # -*- coding: UTF-8 -*-
 
 require 'uri'
@@ -12,30 +11,28 @@ require File.dirname(__FILE__) + '/ud/formatting'
 module UD
   class << self
 
+    # @return [String] the current gem's version
     def version
       '0.2.0'
     end
 
     # Get the search URL to query for a given term.
-    # [term] the term to search for. It must be a string, spaces are allowed
+    # @param term [String] the term to search for. It must be a string, spaces
+    #                      are allowed.
+    # @return [String]
     def search_url(term='')
       param = URI.encode_www_form('term' => term)
       "http://api.urbandictionary.com/v0/define?#{param}"
     end
 
-    # Get the text of an element. This is an helper for internal usage.
-    def text(el)
-      el.text.strip.gsub(/\r/, "\n")
-    rescue
-      ''
-    end
-
     # Query the website and return a list of definitions for the provided term.
     # This list may be empty if there's no result.
-    # [term] the term to search for
-    # [opts] options. This is used by the command-line tool. +:count+ is the
-    # maximum number of results to return, +:ratio+ is the minimum
-    # upvotes/downvotes ratio. Other options may be added in the future.
+    # @param term [String] the term to search for
+    # @param opts [Hash] options. This is used by the command-line tool.
+    #                    +:count+ is the maximum number of results to return,
+    #                    +:ratio+ is the minimum upvotes/downvotes ratio. Other
+    #                    options may be added in the future.
+    # @return [Array<Hash>]
     def query(term, *opts)
 
       opts = {:count => 1, :ratio => 0.0}.merge(opts[0] || {})
@@ -61,7 +58,10 @@ module UD
     end
 
     # Format results for output
-    # [results] this must be an array of results, as returned by +UD.query+.
+    # @param results [Array] this must be an array of results, as returned by
+    #                        +UD.query+.
+    # @param color [Boolean] colored output
+    # @return [String]
     def format_results(results, color=true)
       UD::Formatting.text(results, color)
     end
