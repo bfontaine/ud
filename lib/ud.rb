@@ -13,7 +13,7 @@ module UD
 
     # @return [String] the current gem's version
     def version
-      '0.2.0'
+      '0.2.1'
     end
 
     # Get the search URL to query for a given term.
