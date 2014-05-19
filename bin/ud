@@ -1,6 +1,9 @@
 #! /usr/bin/env ruby
 # -*- coding: UTF-8 -*-
 
+# clean interrupt
+trap('INT') { abort }
+
 require 'trollop'
 require 'ud'
 
