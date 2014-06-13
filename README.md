@@ -3,7 +3,7 @@
 [![Build Status](https://img.shields.io/travis/bfontaine/ud.svg)](https://travis-ci.org/bfontaine/ud)
 [![Gem Version](https://img.shields.io/gem/v/ud.png)](http://badge.fury.io/rb/ud)
 [![Coverage Status](https://img.shields.io/coveralls/bfontaine/ud.svg)](https://coveralls.io/r/bfontaine/ud)
-[![Inline docs](http://inch-pages.github.io/github/bfontaine/ud.svg)](http://inch-pages.github.io/github/bfontaine/ud)
+[![Inline docs](http://inch-ci.org/github/bfontaine/ud.svg)](http://inch-ci.org/github/bfontaine/ud)
 [![Dependency Status](https://img.shields.io/gemnasium/bfontaine/ud.svg)](https://gemnasium.com/bfontaine/ud)
 
 **ud** is a command-line tool for [Urban Dictionnary][urban-dic].
