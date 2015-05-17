@@ -60,9 +60,9 @@ DEPENDENCIES
   colored (~> 1.2)
   coveralls
   fakeweb
-  inch (~> 0.4.2)
-  json (>= 1.8.0)
+  inch (~> 0.4)
+  json (~> 1.8)
   rake
   simplecov
   test-unit
-  trollop (~> 2.0)
+  trollop (~> 2.1)
