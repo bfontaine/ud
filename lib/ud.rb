@@ -13,16 +13,22 @@ module UD
 
     # @return [String] the current gem's version
     def version
-      '0.2.3'
+      '0.2.4'
     end
 
     # Get the search URL to query for a given term.
     # @param term [String] the term to search for. It must be a string, spaces
     #                      are allowed.
+    # @param api [Boolean] truthy if the API URL should be used.
     # @return [String]
-    def search_url(term='')
+    def search_url(term='', api=true)
       param = URI.encode_www_form('term' => term)
-      "http://api.urbandictionary.com/v0/define?#{param}"
+
+      if api
+        "http://api.urbandictionary.com/v0/define?#{param}"
+      else
+        "http://www.urbandictionary.com/define.php?term=#{param}"
+      end
     end
 
     # Open the search URL in the user's browser
@@ -30,7 +36,7 @@ module UD
     #                      are allowed.
     # @return [Nil]
     def open_url(term='')
-      system open_cmd, search_url(term)
+      system open_cmd, search_url(term, false)
     end
 
     # Query the website and return a list of definitions for the provided term.
