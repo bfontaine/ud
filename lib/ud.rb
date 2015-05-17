@@ -27,7 +27,7 @@ module UD
       if api
         "http://api.urbandictionary.com/v0/define?#{param}"
       else
-        "http://www.urbandictionary.com/define.php?term=#{param}"
+        "http://www.urbandictionary.com/define.php?#{param}"
       end
     end
 
