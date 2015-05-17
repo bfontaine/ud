@@ -25,6 +25,10 @@ module UD
       "http://api.urbandictionary.com/v0/define?#{param}"
     end
 
+    def open_url(term='')
+      system open_cmd, search_url(term)
+    end
+
     # Query the website and return a list of definitions for the provided term.
     # This list may be empty if there's no result.
     # @param term [String] the term to search for
@@ -66,5 +70,17 @@ module UD
       UD::Formatting.text(results, color)
     end
 
+    private
+
+    def open_cmd
+      case RbConfig::CONFIG["host_os"]
+      when /darwin/
+        "open"
+      when /bsd|linux/
+        "xdg-open"
+      when /cygwin|mingw|mswin/
+        "start"
+      end
+    end
   end
 end

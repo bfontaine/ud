@@ -20,6 +20,7 @@ EOS
   opt :ratio, 'Filter by upvotes/downvotes ratio', :type => :float, :default => 0.0, :short => '-r'
   opt :count, 'Limit the number of definitions', :type => :int, :default => 1, :short => '-n'
   opt :color, 'Use colorized output', :default => true
+  opt :browser, 'Open the results in a browser window', :short => '-b'
   opt :up, 'Shortcut for \'-r 2\''
 
 end
@@ -34,6 +35,12 @@ if ARGV.empty?
   exit 1
 end
 
-q = UD.query(ARGV.join(' '), opts)
-puts UD.format_results(q, opts[:color])
+term = ARGV.join(' ')
+
+if opts[:browser]
+  UD.open_url(term)
+else
+  q = UD.query(ARGV.join(' '), opts)
+  puts UD.format_results(q, opts[:color])
+end
 
