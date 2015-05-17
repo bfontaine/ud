@@ -9,3 +9,7 @@ end
 task :doctest do
   Inch::CLI::Command::Suggest.new.run('--pedantic')
 end
+
+task :build do
+  system "gem", "build", "./ud.gemspec"
+end
