@@ -5,7 +5,8 @@ require File.dirname(__FILE__) + '/fake_responses'
 
 class UD_Query_test < Test::Unit::TestCase
 
-  ROOT_URL = 'http://api.urbandictionary.com/v0/define'
+  API_URL = 'http://api.urbandictionary.com/v0/define'
+  ROOT_URL = 'http://www.urbandictionary.com/define.php'
 
   def setup
     @foo, @bar = [
@@ -36,30 +37,24 @@ class UD_Query_test < Test::Unit::TestCase
   # == UD#search_url == #
 
   def test_search_url_empty_term
-    assert_equal(
-      "#{ROOT_URL}?term=",
-      UD.search_url())
-      assert_equal(
-        "#{ROOT_URL}?term=",
-        UD.search_url(''))
+    assert_equal("#{API_URL}?term=", UD.search_url())
+    assert_equal("#{API_URL}?term=", UD.search_url(''))
+  end
+
+  def test_search_url_empty_term_nonapi
+    assert_equal("#{ROOT_URL}?term=", UD.search_url('', false))
   end
 
   def test_search_url_spaces_in_term
-    assert_equal(
-      "#{ROOT_URL}?term=a+b",
-      UD.search_url('a b'))
+    assert_equal("#{API_URL}?term=a+b", UD.search_url('a b'))
   end
 
   def test_search_url_encode_special_chars
-    assert_equal(
-      "#{ROOT_URL}?term=%3D",
-      UD.search_url('='))
+    assert_equal("#{API_URL}?term=%3D", UD.search_url('='))
   end
 
   def test_search_url
-    assert_equal(
-      "#{ROOT_URL}?term=foo",
-      UD.search_url('foo'))
+    assert_equal("#{API_URL}?term=foo", UD.search_url('foo'))
   end
 
   # == UD#query == #
@@ -69,29 +64,15 @@ class UD_Query_test < Test::Unit::TestCase
   end
 
   def test_query_two_results
-
-    expected = [
-      @foo, @bar
-    ]
-
-    assert_equal(expected, UD.query('two_results', :count => 2))
+    assert_equal([@foo, @bar], UD.query('two_results', :count => 2))
   end
 
   def test_query_count
-    expected = [
-      @foo
-    ]
-
-    assert_equal(expected, UD.query('two_results', :count => 1))
+    assert_equal([@foo], UD.query('two_results', :count => 1))
   end
 
   def test_query_ratio
-    expected = [
-      @foo
-    ]
-
-    assert_equal(expected, UD.query('two_results', :count => 10, :ratio => 1.5))
+    assert_equal([@foo], UD.query('two_results', :count => 10, :ratio => 1.5))
   end
-
 end
 
