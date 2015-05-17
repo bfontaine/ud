@@ -25,6 +25,10 @@ module UD
       "http://api.urbandictionary.com/v0/define?#{param}"
     end
 
+    # Open the search URL in the user's browser
+    # @param term [String] the term to search for. It must be a string, spaces
+    #                      are allowed.
+    # @return [Nil]
     def open_url(term='')
       system open_cmd, search_url(term)
     end
