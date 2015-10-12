@@ -9,11 +9,20 @@
 
 [urban-dic]: http://www.urbandictionary.com
 
+## Example
+
+    $ ud dafuq
+    * dafuq (9427/4425):
+
+    what the fuck , but in a more confused manner
+
+    Example:
+    Hagrid: You're a wizard Harry
+    Harry: Dafuq?
+
 ## Install
 
-```
-gem install ud
-```
+    gem install ud
 
 Windows users: You will need the Win32 Console ANSI gem for the colored output.
 Install it with `gem install win32console`.
@@ -22,9 +31,7 @@ Install it with `gem install win32console`.
 
 From the command-line:
 
-```
-$ ud <word>
-```
+    $ ud <word>
 
 It supports a few options:
 
@@ -39,22 +46,9 @@ It supports a few options:
 In a Ruby file:
 
 ```ruby
-require 'ud'
+require "ud"
 
-defs = UD.query('wtf')
-```
-
-## Example
-
-```
-$ ud dafuq
-* dafuq (9427/4425):
-
-   what the fuck , but in a more confused manner
-
- Example:
-   Hagrid: You're a wizard Harry
-   Harry: Dafuq?
+defs = UD.query("wtf")
 ```
 
 ## Tests
