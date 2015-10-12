@@ -1,15 +1,19 @@
 #! /usr/bin/env ruby
 # -*- coding: UTF-8 -*-
 
-require 'coveralls'
-Coveralls.wear!
+ci = ENV["CI"] || ENV["CONTINUOUS_INTEGRATION"]
+
+if ci
+  require 'coveralls'
+  Coveralls.wear!
+end
 
 require 'test/unit'
 require 'simplecov'
 
 test_dir = File.expand_path( File.dirname(__FILE__) )
 
-SimpleCov.formatter = Coveralls::SimpleCov::Formatter
+SimpleCov.formatter = Coveralls::SimpleCov::Formatter if ci
 SimpleCov.start { add_filter '/tests/' }
 
 require 'ud'
