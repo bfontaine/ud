@@ -30,6 +30,26 @@ class UDTests < Test::Unit::TestCase
     assert(UD.version =~ /^\d+\.\d+\.\d+/)
   end
 
+  # == UD#open_cmd (private) == #
+
+  def test_ud_open_cmd
+    os = RbConfig::CONFIG["host_os"]
+
+    RbConfig::CONFIG["host_os"] = "darwin"
+    assert_equal "open", UD.send(:open_cmd)
+
+    RbConfig::CONFIG["host_os"] = "linux"
+    assert_equal "xdg-open", UD.send(:open_cmd)
+
+    RbConfig::CONFIG["host_os"] = "bsd"
+    assert_equal "xdg-open", UD.send(:open_cmd)
+
+    RbConfig::CONFIG["host_os"] = "cygwin"
+    assert_equal "start", UD.send(:open_cmd)
+
+    RbConfig::CONFIG["host_os"] = os
+  end
+
 end
 
 
