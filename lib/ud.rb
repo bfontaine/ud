@@ -18,20 +18,21 @@ module UD
     # Get the search URL to query for a given term.
     # @param term [String] the term to search for. It must be a string, spaces
     #                      are allowed.
-    # @param api [Boolean] truthy if the API URL should be used.
+    # @param opts [Hash] options.
     # @return [String]
-    def search_url(term, api = true)
+    def search_url(term, opts = {})
       param = URI.encode_www_form("term" => term)
 
-      if api
+      if opts[:api]
         "http://api.urbandictionary.com/v0/define?#{param}"
       else
         "http://www.urbandictionary.com/define.php?#{param}"
       end
     end
 
-    def random_url(api = true)
-      if api
+    # @param opts [Hash] options.
+    def random_url(opts = {})
+      if opts[:api]
         "http://api.urbandictionary.com/v0/random"
       else
         "http://www.urbandictionary.com/random.php"
@@ -52,19 +53,19 @@ module UD
     # @param opts [Hash] options. This is used by the command-line tool.
     #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
-    def query(term, *opts)
-      parse_response(open(search_url(term)).read, *opts)
+    def query(term, opts = {})
+      parse_response(open(search_url(term)).read, opts)
     end
 
-    def random(count = 1)
-      parse_response open(random_url, :count => count).read
+    def random(opts = {})
+      parse_response(open(random_url).read, opts)
     end
 
     # @param opts [Hash] options. This is used by the command-line tool.
     #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
-    def parse_response(text, *opts)
-      opts = { :count => 1 }.merge(opts[0] || {})
+    def parse_response(text, opts = {})
+      opts = { :count => 1 }.merge(opts || {})
 
       return [] if opts[:count] <= 0
 
