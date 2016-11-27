@@ -16,7 +16,7 @@ GEM
       sparkr (>= 0.2.0)
       term-ansicolor
       yard (~> 0.8.7.5)
-    json (1.8.3)
+    json (2.0.2)
     method_source (0.8.2)
     power_assert (0.4.1)
     pry (0.10.4)
@@ -48,7 +48,6 @@ DEPENDENCIES
   coveralls
   fakeweb
   inch (~> 0.7)
-  json (~> 1.8)
   rake
   simplecov
   test-unit
