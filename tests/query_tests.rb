@@ -41,7 +41,7 @@ class UD_Query_test < Test::Unit::TestCase
   end
 
   def test_search_url_empty_term_nonapi
-    assert_equal("#{ROOT_URL}?term=", UD.search_url('', false))
+    assert_equal("#{ROOT_URL}?term=", UD.search_url('', :api => false))
   end
 
   def test_search_url_spaces_in_term
