@@ -2,9 +2,15 @@
 
 ## 0.3.0 (upcoming release)
 
-* Add `UD.random`
-* Remove `--ratio` support
+* Add `UD.random` and its `--random` option
 * Bump dependencies
+
+### Breaking Changes
+
+* Remove `--ratio` and `--up`
+* Remove Python-style optional arguments in favor of hashes everywhere. This
+  means `UD.search_url("foo", api=false)` becomes
+  `UD.search_url("foo", api: false)`
 
 ## 0.2.5 (2015/05/17)
 
