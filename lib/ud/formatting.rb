@@ -56,12 +56,12 @@ module UD
           example    = tab(fit(r[:example], 75)).join "\n"
 
           <<-EOD
-  * #{word} (#{votes}):
+* #{word} (#{votes}):
 
-  #{definition}
+#{definition}
 
-  Example:
-  #{example}
+ Example:
+#{example}
 
 
           EOD
