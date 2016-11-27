@@ -37,7 +37,6 @@ class UD_Query_test < Test::Unit::TestCase
   # == UD#search_url == #
 
   def test_search_url_empty_term
-    assert_equal("#{API_URL}?term=", UD.search_url())
     assert_equal("#{API_URL}?term=", UD.search_url(''))
   end
 
