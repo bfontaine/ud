@@ -31,6 +31,14 @@ module UD
       end
     end
 
+    def random_url(api=true)
+      if api
+        "http://api.urbandictionary.com/v0/random"
+      else
+        "http://www.urbandictionary.com/random.php"
+      end
+    end
+
     # Open the search URL in the user's browser
     # @param term [String] the term to search for. It must be a string, spaces
     #                      are allowed.
