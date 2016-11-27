@@ -25,7 +25,7 @@ end
 
 Trollop.die :count, "must be non-negative" if opts[:count] < 0
 
-if ARGV.empty?
+if !opts[:random] && ARGV.empty?
   puts "Error: No word provided. Use -h or --help to see the help."
   exit 1
 end
