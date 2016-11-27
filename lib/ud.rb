@@ -43,8 +43,14 @@ module UD
     # @param term [String] the term to search for. It must be a string, spaces
     #                      are allowed.
     # @return [Nil]
-    def open_url(term = "")
-      system open_cmd, search_url(term, false)
+    def open_url(term)
+      system open_cmd, search_url(term, :api => false)
+    end
+
+    # Open a random definition URL in the user's browser
+    # @return [Nil]
+    def open_random
+      system open_cmd, random_url(:api => false)
     end
 
     # Query the website and return a list of definitions for the provided term.

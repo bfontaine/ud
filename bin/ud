@@ -33,7 +33,7 @@ end
 term = ARGV.join " "
 
 if opts[:browser]
-  UD.open_url(term)
+  opts[:random] ? UD.open_random : UD.open_url(term)
 else
   q = opts[:random] ? UD.random(opts) : UD.query(ARGV.join(" "), opts)
   puts UD.format_results(q, opts[:color])
