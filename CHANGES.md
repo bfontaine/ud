@@ -7,7 +7,6 @@
 
 ### Breaking Changes
 
-* Drop support for Ruby 1.9.2
 * Remove `--ratio` and `--up`
 * Remove Python-style optional arguments in favor of hashes everywhere. This
   means `UD.search_url("foo", api=false)` becomes
