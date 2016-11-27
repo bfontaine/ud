@@ -18,6 +18,7 @@ where [options] are:
 EOS
 
   opt :count, "Limit the number of definitions", :type => :int, :default => 1, :short => "-n"
+  opt :random, "Print a random definition instead of searching", :short => "m"
   opt :color, "Use colorized output", :default => true
   opt :browser, "Open the results in a browser window", :short => "-b"
 end
@@ -34,6 +35,6 @@ term = ARGV.join " "
 if opts[:browser]
   UD.open_url(term)
 else
-  q = UD.query(ARGV.join(" "), opts)
+  q = opts[:random] ? UD.random(opts) : UD.query(ARGV.join(" "), opts)
   puts UD.format_results(q, opts[:color])
 end
