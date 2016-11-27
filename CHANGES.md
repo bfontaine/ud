@@ -1,8 +1,8 @@
 # UD Changelog
 
-## 0.3.0 (upcoming release)
+## 0.3.0 (2016/11/27)
 
-* Add `UD.random` and its `--random` option
+* Add `UD.random` and  `UD.open_random`, as well as the `--random` option
 * Bump dependencies
 
 ### Breaking Changes
