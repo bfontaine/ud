@@ -23,11 +23,11 @@ module UD
       # @param width [Integer] tab width
       # @return [String]
       def tab(txt, width = 4)
-        width = 0 if width < 0
+        return txt if width <= 0
 
         tab = " " * width
 
-        return tab + txt if txt.is_a?(String)
+        return tab + txt if txt.is_a? String
 
         txt.map { |l| tab + l }
       end
