@@ -58,6 +58,9 @@ module UD
       parse_response(open(search_url(term)).read, *opts)
     end
 
+    def random(count = 1)
+      parse_response open(random_url, :count => count).read
+    end
 
     # @param opts [Hash] options. This is used by the command-line tool.
     #                    +:count+ is the maximum number of results to return,
