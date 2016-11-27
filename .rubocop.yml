@@ -1,0 +1,101 @@
+# Settings mostly copied from Homebrew's .rubocop.yml
+AllCops:
+  TargetRubyVersion: 2.0
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/BlockLength:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/CyclomaticComplexity:
+  Enabled: false
+
+Metrics/LineLength:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/ModuleLength:
+  CountComments: false
+
+Metrics/PerceivedComplexity:
+  Enabled: false
+
+Lint/EndAlignment:
+  AlignWith: variable
+
+Style/Alias:
+  EnforcedStyle: prefer_alias
+
+# `system` is a special case and aligns on second argument
+Style/AlignParameters:
+  Enabled: false
+
+Style/BarePercentLiterals:
+  EnforcedStyle: percent_q
+
+Style/BlockDelimiters:
+  EnforcedStyle: line_count_based
+
+Style/CaseIndentation:
+  IndentWhenRelativeTo: end
+
+Style/ClassAndModuleChildren:
+  EnforcedStyle: nested
+
+Style/ConditionalAssignment:
+  Enabled: false
+
+Style/EmptyLineBetweenDefs:
+  AllowAdjacentOneLineDefs: true
+
+Style/GuardClause:
+  Enabled: false
+
+Style/HashSyntax:
+  EnforcedStyle: hash_rockets
+
+Style/IndentArray:
+  EnforcedStyle: special_inside_parentheses
+
+# only for numbers >= 1_000_000
+Style/NumericLiterals:
+  MinDigits: 7
+
+Style/NumericLiteralPrefix:
+  EnforcedOctalStyle: zero_only
+
+Style/PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  '()'
+    '%i': '()'
+    '%q': '()'
+    '%Q': '()'
+    '%r': '{}'
+    '%s': '()'
+    '%w': '[]'
+    '%W': '[]'
+    '%x': '()'
+
+Style/RaiseArgs:
+  EnforcedStyle: exploded
+
+Style/RegexpLiteral:
+  EnforcedStyle: slashes
+
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes
+
+Style/TernaryParentheses:
+  Enabled: false
+
+Style/TrailingCommaInLiteral:
+  EnforcedStyleForMultiline: comma
