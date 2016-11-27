@@ -23,7 +23,7 @@ module UD
     def search_url(term, opts = {})
       param = URI.encode_www_form("term" => term)
 
-      if opts[:api]
+      if opts[:api] != false
         "http://api.urbandictionary.com/v0/define?#{param}"
       else
         "http://www.urbandictionary.com/define.php?#{param}"
@@ -32,7 +32,7 @@ module UD
 
     # @param opts [Hash] options.
     def random_url(opts = {})
-      if opts[:api]
+      if opts[:api] != false
         "http://api.urbandictionary.com/v0/random"
       else
         "http://www.urbandictionary.com/random.php"
