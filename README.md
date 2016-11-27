@@ -36,14 +36,11 @@ From the command-line:
 It supports a few options:
 
 - `-n`, `--count`: maximum number of definitions (default: 1)
-- `-r`, `--ratio`: minimum upvotes/downvotes ratio (default: 0.0)
-- `--up`: shortcut for `--ratio 1`. With this option, only definitions which
-  have more upvotes than downvotes are shown
 - `--no-color`: disable colored output.
 - `-b`, `--browser`: open the results in your browser instead of displaying
   them in the console
 
-In a Ruby file:
+In a Ruby script:
 
 ```ruby
 require "ud"

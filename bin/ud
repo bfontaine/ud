@@ -17,17 +17,12 @@ Usage:
 where [options] are:
 EOS
 
-  opt :ratio, "Filter by upvotes/downvotes ratio", :type => :float, :default => 0.0, :short => "-r"
   opt :count, "Limit the number of definitions", :type => :int, :default => 1, :short => "-n"
   opt :color, "Use colorized output", :default => true
   opt :browser, "Open the results in a browser window", :short => "-b"
-  opt :up, "Shortcut for '-r 2'"
 end
 
-Trollop.die :ratio, "must be non-negative" if opts[:ratio] < 0
 Trollop.die :count, "must be non-negative" if opts[:count] < 0
-
-opts[:ratio] = 2 if opts[:up]
 
 if ARGV.empty?
   puts "Error: No word provided. Use -h or --help to see the help."

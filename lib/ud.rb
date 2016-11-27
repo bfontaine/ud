@@ -50,9 +50,7 @@ module UD
     # This list may be empty if there's no result.
     # @param term [String] the term to search for
     # @param opts [Hash] options. This is used by the command-line tool.
-    #                    +:count+ is the maximum number of results to return,
-    #                    +:ratio+ is the minimum upvotes/downvotes ratio. Other
-    #                    options may be added in the future.
+    #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
     def query(term, *opts)
       parse_response(open(search_url(term)).read, *opts)
@@ -63,9 +61,7 @@ module UD
     end
 
     # @param opts [Hash] options. This is used by the command-line tool.
-    #                    +:count+ is the maximum number of results to return,
-    #                    +:ratio+ is the minimum upvotes/downvotes ratio. Other
-    #                    options may be added in the future.
+    #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
     def parse_response(text, *opts)
       opts = { :count => 1 }.merge(opts[0] || {})
@@ -86,12 +82,6 @@ module UD
           :downvotes  => res[:thumbs_down],
         }
       end
-
-      results.select! do |d|
-        next true if d[:downvotes] == 1
-
-        d[:upvotes] / d[:downvotes].to_f >= opts[:ratio]
-      end if opts[:ratio]
 
       results.take opts[:count]
     end

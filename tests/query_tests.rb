@@ -70,9 +70,5 @@ class UD_Query_test < Test::Unit::TestCase
   def test_query_count
     assert_equal([@foo], UD.query('two_results', :count => 1))
   end
-
-  def test_query_ratio
-    assert_equal([@foo], UD.query('two_results', :count => 10, :ratio => 1.5))
-  end
 end
 
