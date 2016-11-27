@@ -12,13 +12,13 @@
 ## Example
 
     $ ud dafuq
-    * dafuq (9427/4425):
+    * dafuq (11644/4888):
 
-    what the fuck , but in a more confused manner
+        [what the fuck] , but in a more confused manner
 
-    Example:
-    Hagrid: You're a wizard Harry
-    Harry: Dafuq?
+     Example:
+        Hagrid: You're a wizard Harry
+        Harry: Dafuq?
 
 ## Install
 
@@ -36,6 +36,7 @@ From the command-line:
 It supports a few options:
 
 - `-n`, `--count`: maximum number of definitions (default: 1)
+- `-m`, `--random`: print a random definition instead
 - `--no-color`: disable colored output.
 - `-b`, `--browser`: open the results in your browser instead of displaying
   them in the console
