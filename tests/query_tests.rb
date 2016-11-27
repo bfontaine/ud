@@ -56,6 +56,12 @@ class UD_Query_test < Test::Unit::TestCase
     assert_equal("#{API_URL}?term=foo", UD.search_url('foo'))
   end
 
+  # == UD#random_url == #
+
+  def test_random_url
+    assert_equal("http://api.urbandictionary.com/v0/random", UD.random_url)
+  end
+
   # == UD#query == #
 
   def test_query_no_results
