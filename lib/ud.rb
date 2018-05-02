@@ -30,6 +30,7 @@ module UD
       end
     end
 
+    # Return a URL for a random definition.
     # @param opts [Hash] options.
     def random_url(opts = {})
       if opts[:api] != false
@@ -63,10 +64,13 @@ module UD
       parse_response(open(search_url(term)).read, opts)
     end
 
+    # Return a random definition
+    # @param opts [Hash] options.
     def random(opts = {})
       parse_response(open(random_url).read, opts)
     end
 
+    # Parse a response from the Urban Dictionnary website.
     # @param opts [Hash] options. This is used by the command-line tool.
     #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
