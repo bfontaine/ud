@@ -4,10 +4,10 @@
 # clean interrupt
 trap("INT") { abort }
 
-require "trollop"
+require "optimist"
 require "ud"
 
-opts = Trollop.options do
+opts = Optimist.options do
   version "ud #{UD.version}"
   banner <<-EOS
 UD is a command-line tool to scrape definitions from the Urban Dictionary.
@@ -23,7 +23,7 @@ EOS
   opt :browser, "Open the results in a browser window", :short => "-b"
 end
 
-Trollop.die :count, "must be non-negative" if opts[:count] < 0
+Optimist.die :count, "must be non-negative" if opts[:count] < 0
 
 if !opts[:random] && ARGV.empty?
   puts "Error: No word provided. Use -h or --help to see the help."

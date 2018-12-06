@@ -22,6 +22,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     multi_json (1.13.1)
+    optimist (3.0.0)
     power_assert (1.1.1)
     pry (0.11.3)
       coderay (~> 1.1.0)
@@ -41,7 +42,6 @@ GEM
       power_assert
     thor (0.18.1)
     tins (0.13.2)
-    trollop (2.1.2)
     yard (0.9.12)
 
 PLATFORMS
@@ -52,10 +52,10 @@ DEPENDENCIES
   coveralls
   fakeweb
   inch (~> 0.7)
+  optimist (~> 3.0)
   rake
   simplecov
   test-unit
-  trollop (~> 2.1)
 
 BUNDLED WITH
-   1.16.1
+   1.17.1

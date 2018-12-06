@@ -19,7 +19,7 @@ Gem::Specification.new do |s|
 
   s.executables << "ud"
 
-  s.add_runtime_dependency "trollop", "~> 2.1"
+  s.add_runtime_dependency "optimist", "~> 3.0"
   s.add_runtime_dependency "colored", "~> 1.2"
 
   s.add_development_dependency "simplecov", "~> 0.7"

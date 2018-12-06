@@ -2,7 +2,7 @@ source "https://rubygems.org"
 
 gem "coveralls", :require => false
 
-gem "trollop", "~> 2.1"
+gem "optimist", "~> 3.0"
 gem "colored", "~> 1.2"
 
 group :test do
