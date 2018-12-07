@@ -5,15 +5,15 @@ require File.dirname(__FILE__) + '/fake_responses'
 
 class UD_Query_test < Test::Unit::TestCase
 
-  API_URL = 'http://api.urbandictionary.com/v0/define'
-  ROOT_URL = 'http://www.urbandictionary.com/define.php'
+  API_URL = 'https://api.urbandictionary.com/v0/define'
+  ROOT_URL = 'https://www.urbandictionary.com/define.php'
 
   def setup
     @foo, @bar = [
       {
         :id => 1,
         :author => 'a1',
-        :permalink => 'http://example.com/1',
+        :permalink => 'https://example.com/1',
         :word => 'foo',
         :definition => 'A',
         :example => 'AA',
@@ -24,7 +24,7 @@ class UD_Query_test < Test::Unit::TestCase
       {
         :id => 2,
         :author => 'a2',
-        :permalink => 'http://example.com/2',
+        :permalink => 'https://example.com/2',
         :word => 'bar',
         :definition => 'B',
         :example => 'BB',
@@ -59,7 +59,7 @@ class UD_Query_test < Test::Unit::TestCase
   # == UD#random_url == #
 
   def test_random_url
-    assert_equal("http://api.urbandictionary.com/v0/random", UD.random_url)
+    assert_equal("https://api.urbandictionary.com/v0/random", UD.random_url)
   end
 
   # == UD#query == #

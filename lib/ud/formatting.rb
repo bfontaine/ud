@@ -11,7 +11,7 @@ module UD
       def fit(txt, width = 79)
         return [] if width < 1
 
-        # from http://stackoverflow.com/a/7567210/735926
+        # from https://stackoverflow.com/a/7567210/735926
         r = /(.{1,#{width}})(?:\s|$)/m
         txt.split("\n").map { |l| l.scan(r) }.flatten
       end

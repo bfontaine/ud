@@ -15,6 +15,9 @@ module UD
       "0.3.0"
     end
 
+    API_ROOT = "https://api.urbandictionary.com/v0"
+    WWW_ROOT = "https://www.urbandictionary.com"
+
     # Get the search URL to query for a given term.
     # @param term [String] the term to search for. It must be a string, spaces
     #                      are allowed.
@@ -24,9 +27,9 @@ module UD
       param = URI.encode_www_form("term" => term)
 
       if opts[:api] != false
-        "http://api.urbandictionary.com/v0/define?#{param}"
+        "#{API_ROOT}/define?#{param}"
       else
-        "http://www.urbandictionary.com/define.php?#{param}"
+        "#{WWW_ROOT}/define.php?#{param}"
       end
     end
 
@@ -34,9 +37,9 @@ module UD
     # @param opts [Hash] options.
     def random_url(opts = {})
       if opts[:api] != false
-        "http://api.urbandictionary.com/v0/random"
+        "#{API_ROOT}/random"
       else
-        "http://www.urbandictionary.com/random.php"
+        "#{WWW_ROOT}/random.php"
       end
     end
 

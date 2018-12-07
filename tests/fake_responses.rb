@@ -4,7 +4,7 @@
 require 'fakeweb'
 
 RESPONSES_DIR = "#{File.expand_path(File.dirname(__FILE__))}/responses"
-BASE_URL = 'http://api.urbandictionary.com/v0/define'
+BASE_URL = 'https://api.urbandictionary.com/v0/define'
 
 FakeWeb.allow_net_connect = %r[^https?://coveralls\.io]
 
