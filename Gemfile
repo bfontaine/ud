@@ -10,5 +10,5 @@ group :test do
   gem "inch", "~> 0.7", :require => false
   gem "rake"
   gem "test-unit"
-  gem "fakeweb"
+  gem "webmock"
 end
