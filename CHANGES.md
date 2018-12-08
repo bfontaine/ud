@@ -1,5 +1,10 @@
 # UD Changelog
 
+## 0.3.1 (2018/12/08)
+
+* Use HTTPS everywhere
+* Bump dependencies
+
 ## 0.3.0 (2016/11/27)
 
 * Add `UD.random` and  `UD.open_random`, as well as the `--random` option
