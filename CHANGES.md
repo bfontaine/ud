@@ -3,6 +3,7 @@
 ## 0.3.1 (2018/12/08)
 
 * Use HTTPS everywhere
+* Fix Optimist warning
 * Bump dependencies
 
 ## 0.3.0 (2016/11/27)
