@@ -1,6 +1,5 @@
 # ud
 
-[![Build Status](https://img.shields.io/travis/bfontaine/ud.svg)](https://travis-ci.org/bfontaine/ud)
 [![Gem Version](https://img.shields.io/gem/v/ud.png)](http://badge.fury.io/rb/ud)
 [![Coverage Status](https://img.shields.io/coveralls/bfontaine/ud.svg)](https://coveralls.io/r/bfontaine/ud)
 [![Inline docs](http://inch-ci.org/github/bfontaine/ud.svg)](http://inch-ci.org/github/bfontaine/ud)

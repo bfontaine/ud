@@ -1,5 +1,9 @@
 # UD Changelog
 
+## 0.3.2 (2020/03/04)
+
+* Fix a `Kernel.open` warning when using Ruby 2.7+
+
 ## 0.3.1 (2018/12/08)
 
 * Use HTTPS everywhere
