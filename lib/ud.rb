@@ -64,13 +64,13 @@ module UD
     #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
     def query(term, opts = {})
-      parse_response(open(search_url(term)).read, opts)
+      parse_response(OpenURI.open_uri(search_url(term)).read, opts)
     end
 
     # Return a random definition
     # @param opts [Hash] options.
     def random(opts = {})
-      parse_response(open(random_url).read, opts)
+      parse_response(OpenURI.open_uri(random_url).read, opts)
     end
 
     # Parse a response from the Urban Dictionnary website.
