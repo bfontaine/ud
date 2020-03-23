@@ -1,4 +1,4 @@
-require 'inch'
+require 'inch/rake'
 
 task :default => [ :test ]
 
@@ -7,7 +7,7 @@ task :test do
 end
 
 task :doctest do
-  Inch::CLI::Command::Suggest.new.run('--pedantic')
+  Inch::Rake::Suggest.new { |s| s.args << '--pedantic' }
 end
 
 task :build do
