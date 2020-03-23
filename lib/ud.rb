@@ -73,7 +73,7 @@ module UD
       parse_response(OpenURI.open_uri(random_url).read, opts)
     end
 
-    # Parse a response from the Urban Dictionnary website.
+    # Parse a response from the Urban Dictionary website.
     # @param opts [Hash] options. This is used by the command-line tool.
     #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]

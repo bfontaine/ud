@@ -4,7 +4,7 @@
 [![Coverage Status](https://img.shields.io/coveralls/bfontaine/ud.svg)](https://coveralls.io/r/bfontaine/ud)
 [![Inline docs](http://inch-ci.org/github/bfontaine/ud.svg)](http://inch-ci.org/github/bfontaine/ud)
 
-**ud** is a command-line tool for the [Urban Dictionnary][urban-dic].
+**ud** is a command-line tool for the [Urban Dictionary][urban-dic].
 
 [urban-dic]: http://www.urbandictionary.com
 
