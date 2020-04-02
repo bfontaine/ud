@@ -13,14 +13,13 @@ Gem::Specification.new do |s|
   s.email         = "b@ptistefontaine.fr"
   s.homepage      = "https://github.com/bfontaine/ud"
 
-  s.files         = ["lib/ud.rb", "lib/ud/formatting.rb"]
+  s.files         = Dir.glob("lib/*.rb")
   s.test_files    = Dir.glob("tests/*tests.rb")
   s.require_path  = "lib"
 
   s.executables << "ud"
 
-  s.add_runtime_dependency "optimist", "~> 3.0"
-  s.add_runtime_dependency "colored", "~> 1.2"
+  s.add_runtime_dependency "defcli", "~> 0.0"
 
   s.add_development_dependency "simplecov", "~> 0.18"
   s.add_development_dependency "rake",      "~> 12.3"

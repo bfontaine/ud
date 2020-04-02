@@ -2,9 +2,8 @@
 
 require "uri"
 require "json"
-require "open-uri"
 
-require File.dirname(__FILE__) + "/ud/formatting"
+require "defcli"
 
 # This module provide some methods to scrape definitions from the Urban
 # Dictionary website.
@@ -48,13 +47,13 @@ module UD
     #                      are allowed.
     # @return [Nil]
     def open_url(term)
-      system open_cmd, search_url(term, :api => false)
+      Defcli.open_in_browser search_url(term, :api => false)
     end
 
     # Open a random definition URL in the user's browser
     # @return [Nil]
     def open_random
-      system open_cmd, random_url(:api => false)
+      Defcli.open_in_browser random_url(:api => false)
     end
 
     # Query the website and return a list of definitions for the provided term.
@@ -64,13 +63,13 @@ module UD
     #                    +:count+ is the maximum number of results to return
     # @return [Array<Hash>]
     def query(term, opts = {})
-      parse_response(OpenURI.open_uri(search_url(term)).read, opts)
+      parse_response(Defcli.read_url(search_url(term)), opts)
     end
 
     # Return a random definition
     # @param opts [Hash] options.
     def random(opts = {})
-      parse_response(OpenURI.open_uri(random_url).read, opts)
+      parse_response(Defcli.read_url(random_url), opts)
     end
 
     # Parse a response from the Urban Dictionary website.
@@ -106,20 +105,7 @@ module UD
     # @param color [Boolean] colored output
     # @return [String]
     def format_results(results, color = true)
-      UD::Formatting.text(results, color)
-    end
-
-    private
-
-    def open_cmd
-      case RbConfig::CONFIG["host_os"]
-      when /darwin/
-        "open"
-      when /bsd|linux/
-        "xdg-open"
-      when /cygwin|mingw|mswin/
-        "start"
-      end
+      Defcli.format_results(results, color)
     end
   end
 end

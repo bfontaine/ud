@@ -23,33 +23,10 @@ for t in Dir.glob( File.join( test_dir,  '*_tests.rb' ) )
 end
 
 class UDTests < Test::Unit::TestCase
-
   # == UD#version == #
-
   def test_ud_version
     assert(UD.version =~ /^\d+\.\d+\.\d+/)
   end
-
-  # == UD#open_cmd (private) == #
-
-  def test_ud_open_cmd
-    os = RbConfig::CONFIG["host_os"]
-
-    RbConfig::CONFIG["host_os"] = "darwin"
-    assert_equal "open", UD.send(:open_cmd)
-
-    RbConfig::CONFIG["host_os"] = "linux"
-    assert_equal "xdg-open", UD.send(:open_cmd)
-
-    RbConfig::CONFIG["host_os"] = "bsd"
-    assert_equal "xdg-open", UD.send(:open_cmd)
-
-    RbConfig::CONFIG["host_os"] = "cygwin"
-    assert_equal "start", UD.send(:open_cmd)
-
-    RbConfig::CONFIG["host_os"] = os
-  end
-
 end
 
 
