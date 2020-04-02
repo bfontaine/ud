@@ -1,5 +1,11 @@
 # UD Changelog
 
+## 0.4.0 (2020/04/02)
+
+* Move internal utilities into [defcli][].
+
+[defcli]: https://github.com/bfontaine/defcli
+
 ## 0.3.2 (2020/03/04)
 
 * Fix a `Kernel.open` warning when using Ruby 2.7+

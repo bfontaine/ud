@@ -11,7 +11,7 @@ module UD
   class << self
     # @return [String] the current gem's version
     def version
-      "0.3.2"
+      "0.4.0"
     end
 
     API_ROOT = "https://api.urbandictionary.com/v0"
